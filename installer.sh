@@ -11,8 +11,9 @@ REPONAME=MeepMeep
 REPOOWNER=deathbybandaid
 
 ## Install Directories
-INSTALLPLACE=/etc/"$NAMEOFAPP"/
-CONFIGURATIONFILE="$INSTALLPLACE"/config.ini
+INSTALLPLACE=/opt/"$NAMEOFAPP"/
+CONFIGFILESDIR=/etc/"$NAMEOFAPP"/
+CONFIGURATIONFILE="$CONFIGFILESDIR"/config.ini
 
 ## Check for whiptail
 { if

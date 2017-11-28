@@ -31,8 +31,10 @@ exit
 else
 echo "Installing"
 git clone https://github.com/"$REPOOWNER"/"$NAMEOFAPP".git $INSTALLPLACE
+mkdir $CONFIGFILESDIR
 
 ## Configuration
+touch $CONFIGURATIONFILE
 SPEEDTESTFREQUENCY=$(whiptail --inputbox "How Often (in minutes) should the speedtest run?" 10 80 "60" 3>&1 1>&2 2>&3)
 echo "SPEEDTESTFREQUENCY=$SPEEDTESTFREQUENCY" | tee --append $CONFIGURATIONFILE
 

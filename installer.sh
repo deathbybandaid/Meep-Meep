@@ -56,5 +56,22 @@ touch $CONFIGURATIONFILE
 SPEEDTESTFREQUENCY=$(whiptail --inputbox "How Often (in minutes) should the speedtest run?" 10 80 "60" 3>&1 1>&2 2>&3)
 echo "SPEEDTESTFREQUENCY=$SPEEDTESTFREQUENCY" | tee --append $CONFIGURATIONFILE
 
+## Make sure all required services are running
+declare -a servicecheckarray=("lighttpd" "lighttpd" "lighttpd")
+
+for i in "${servicecheckarray[@]}"
+do
+echo 'Checking ' $i
+if (( $(ps -ef | grep -v grep | grep $i | wc -l) > 0 ))
+then
+echo $i ' is running!!!'
+else
+echo $i ' is not running!!!'
+echo $i ' is restarting!!!'
+service $i restart
+fi
+echo ""
+done
+
 ## End of install
 fi

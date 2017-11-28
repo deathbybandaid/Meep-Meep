@@ -58,7 +58,6 @@ echo "SPEEDTESTFREQUENCY=$SPEEDTESTFREQUENCY" | tee --append $CONFIGURATIONFILE
 
 ## Make sure all required services are running
 declare -a servicecheckarray=("lighttpd" "lighttpd" "lighttpd")
-
 for i in "${servicecheckarray[@]}"
 do
 echo 'Checking ' $i

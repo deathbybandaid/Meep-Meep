@@ -35,6 +35,7 @@ echo 'Installing Dependencies'
 declare -a dependenciescheckarray=("curl" "whiptail" "git")
 for i in "${dependenciescheckarray[@]}"
 do
+echo 'Checking for ' $i
 { if
 which $i >/dev/null;
 then
@@ -42,8 +43,8 @@ then
 else
 apt-get install -y $i
 fi }
-done
 echo ""
+done
 
 echo "Installing"
 git clone https://github.com/"$REPOOWNER"/"$NAMEOFAPP".git $INSTALLPLACE

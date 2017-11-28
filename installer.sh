@@ -29,6 +29,22 @@ if
 then
 exit
 else
+
+## Dependencies
+echo 'Installing Dependencies'
+declare -a dependenciescheckarray=("curl" "whiptail" "git")
+for i in "${dependenciescheckarray[@]}"
+do
+{ if
+which $i >/dev/null;
+then
+:
+else
+apt-get install -y $i
+fi }
+done
+echo ""
+
 echo "Installing"
 git clone https://github.com/"$REPOOWNER"/"$NAMEOFAPP".git $INSTALLPLACE
 mkdir $CONFIGFILESDIR

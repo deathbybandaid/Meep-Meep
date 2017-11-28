@@ -48,6 +48,7 @@ echo ""
 echo "Installing"
 git clone https://github.com/"$REPOOWNER"/"$NAMEOFAPP".git $INSTALLPLACE
 mkdir $CONFIGFILESDIR
+echo ""
 
 ## Configuration
 touch $CONFIGURATIONFILE

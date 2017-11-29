@@ -53,8 +53,15 @@ echo ""
 
 ## Configuration
 touch $CONFIGURATIONFILE
+
 SPEEDTESTFREQUENCY=$(whiptail --inputbox "How Often (in minutes) should the speedtest run?" 10 80 "60" 3>&1 1>&2 2>&3)
 echo "SPEEDTESTFREQUENCY=$SPEEDTESTFREQUENCY" | tee --append $CONFIGURATIONFILE
+
+DOWNSPEED=$(whiptail --inputbox "What Is your down speed?" 10 80 "60" 3>&1 1>&2 2>&3)
+echo "DOWNSPEED=$DOWNSPEED" | tee --append $CONFIGURATIONFILE
+
+UPSPEED=$(whiptail --inputbox "What Is your up speed?" 10 80 "60" 3>&1 1>&2 2>&3)
+echo "UPSPEED=$UPSPEED" | tee --append $CONFIGURATIONFILE
 
 ## Make sure all required services are running
 declare -a servicecheckarray=("lighttpd" "lighttpd" "lighttpd")

@@ -2,5 +2,5 @@
 *.pyc
 */__pycache__
 *.DS_STORE
-web/config/*.db
-web/config/*.cfg
+web/project/config/*
+web/project/config/*
